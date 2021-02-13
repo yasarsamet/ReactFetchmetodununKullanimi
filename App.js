@@ -5,7 +5,6 @@
  * @format
  * @flow strict-local
  */
-
 import React, { Component } from 'react';
 import {
   StyleSheet,  
@@ -24,25 +23,23 @@ class Home extends Component{
     }
   }
   updateValue(text,field){
-    if(field =='Name'){
+    if(field =='a'){
         this.setState({
           a:text,
         })
-    }else if(field=='Password'){
+    }else if(field=='b'){
           this.setState({
             b:text,
           })
     }
-    console.warn(text)
+    // console.warn(text)
   }
   submit(){
     let collection = {}
     collection.a=this.state.a,
-    collection.b=this.state.b
+    collection.b=this.state.b 
     console.warn(collection);
-
-
-    fetch('https://httpbin.org/post', {
+    fetch('https://httpbin.org/post', { //https://httpbin.org/post
          method: 'POST',
           headers: {
            'Content-Type': 'application/json',
@@ -72,7 +69,7 @@ class Home extends Component{
             />
             <TouchableOpacity style={styles.btn}
             onPress={()=>this.submit()}>            
-              <Text>Test Et</Text>
+              <Text>Test ET</Text>
             </TouchableOpacity>
         </View>
     );
@@ -93,13 +90,12 @@ const styles = StyleSheet.create({
     borderBottomWidth:1,
     borderBottomColor:'#eee'
   },
-  btn:{
-    backgroundColor:'skyblue',
+    btn:{
+      backgroundColor:'skyblue',
     height:40,
     color:'#fff',
     justifyContent:'center',
     alignItems:'center',
-
   }
 });
 export default Home;
